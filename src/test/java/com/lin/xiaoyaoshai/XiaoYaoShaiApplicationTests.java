@@ -13,12 +13,12 @@ import java.util.Random;
 @SpringBootTest
 class XiaoYaoShaiApplicationTests {
 
-    @Test
-    void contextLoads() {
-    }
-
-    @Autowired
-    private UserMapper userMapper;
+//    @Test
+//    void contextLoads() {
+//    }
+//
+//    @Autowired
+//    private UserMapper userMapper;
 
 //    @Test
 //    void testInsert(){

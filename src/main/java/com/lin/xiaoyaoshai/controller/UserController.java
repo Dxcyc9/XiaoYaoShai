@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Map;
+
 @RestController
 @CrossOrigin
 public class UserController {
@@ -29,9 +31,9 @@ public class UserController {
      * @return
      */
     @PostMapping("/user/login")
-    Result<String> userLogin(@RequestBody LoginVO loginVO){
+    Result<Map<String,String>> userLogin(@RequestBody LoginVO loginVO){
         if(userService.login(loginVO) == 1)
-            return Result.success("成功登陆");
+            return Result.success(userService.getName(loginVO.getId()));
         else
             return Result.error(CodeMsg.LOGIN_FAIL);
     }

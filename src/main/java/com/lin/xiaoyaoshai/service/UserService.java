@@ -12,6 +12,9 @@ import org.slf4j.LoggerFactory;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Service
 public class UserService {
 
@@ -78,11 +81,22 @@ public class UserService {
      */
     public int register(RegisterVO VO) {
         String mail = VO.getId();
-        String code = VO.getCode();
-        String codeInRedis = (String) redisUtil.get(mail);
-        if(code.equals(codeInRedis)) {
+        String password = VO.getPassword();
+        String name = VO.getName();
+        User user = new User(mail,password,name);
+        try {
+            userMapper.insert(user);
             return 1;
         }
-        return 0;
+        catch (Exception e){
+            return 0;
+        }
+    }
+
+    public Map<String, String> getName(String mail) {
+        User user = userMapper.selectById(mail);
+        Map<String,String> map = new HashMap<>();
+        map.put("username", user.getName());
+        return map;
     }
 }

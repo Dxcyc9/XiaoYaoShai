@@ -12,5 +12,7 @@ public class RegisterVO {
     /**
      * 验证码
      */
-    private String code;
+    private String password;
+
+    private String name;
 }
