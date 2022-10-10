@@ -24,7 +24,7 @@
             }
             socket = new WebSocket(socketUrl);
             //打开事件
-            socket.onopen = function() {
+            socket  = function() {
                 console.log("websocket已打开");
                 //socket.send("这是来自客户端的消息" + location.href + new Date());
             };
@@ -49,7 +49,7 @@
         }else {
             console.log("您的浏览器支持WebSocket");
             console.log('{"toUserId":"'+$("#toUserId").val()+'","contentText":"'+$("#contentText").val()+'"}');
-            socket.send('{"toUserId":"'+$("#toUserId").val()+'","contentText":"'/+$("#contentText").val()+'"}');
+            socket.send('{"toUserId":"'+$("#toUserId").val()+'","contentText":"'+$("#contentText").val()+'"}');
         }
     }
 </script>

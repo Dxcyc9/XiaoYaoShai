@@ -15,7 +15,7 @@ public class CodeMsg {
     public static CodeMsg LOGIN_FAIL = new CodeMsg(500210, "登陆失败");
     public static CodeMsg SEND_CODE_FAIL = new CodeMsg(500211, "发送失败");
     public static CodeMsg REGISTER_FAIL = new CodeMsg(500212, "注册失败");
-    public static CodeMsg PASSWORD_ERROR = new CodeMsg(500215, "密码错误");
+    public static CodeMsg MATCH_WAIT = new CodeMsg(500215, "正在匹配");
     public static CodeMsg PRIMARY_ERROR = new CodeMsg(500216, "主键冲突");
 
     //订单模块 5003XX
