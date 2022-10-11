@@ -3,7 +3,7 @@ package com.lin.xiaoyaoshai.vo;
 import lombok.Data;
 
 @Data
-public class MatchInfo {
+public class DisRelationInfoVO {
 
     private String userId1;
 

@@ -16,7 +16,7 @@ public class CodeMsg {
     public static CodeMsg SEND_CODE_FAIL = new CodeMsg(500211, "发送失败");
     public static CodeMsg REGISTER_FAIL = new CodeMsg(500212, "注册失败");
     public static CodeMsg MATCH_WAIT = new CodeMsg(500215, "正在匹配");
-    public static CodeMsg PRIMARY_ERROR = new CodeMsg(500216, "主键冲突");
+    public static CodeMsg DIS_ERROR = new CodeMsg(500216, "解除关系失败");
 
     //订单模块 5003XX
     public static CodeMsg ORDER_EMPTY = new CodeMsg(500310, "无订单");
