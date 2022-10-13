@@ -4,6 +4,7 @@ import com.lin.xiaoyaoshai.config.CodeMsg;
 import com.lin.xiaoyaoshai.config.Result;
 import com.lin.xiaoyaoshai.service.MatchService;
 import com.lin.xiaoyaoshai.vo.DisRelationInfoVO;
+import com.lin.xiaoyaoshai.vo.MatchInfoVO;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,8 +23,18 @@ public class MatchController {
      * @return
      */
     @GetMapping("/matchRival/{mail}")
-    public Result<String> matchRival(@PathVariable String mail) {
+    public Result<MatchInfoVO> matchRival(@PathVariable String mail) {
         logger.info(mail);
+        MatchInfoVO VO = new MatchInfoVO();
+        VO = matchService.matchRival(mail);
+        logger.info("saas"+VO.getRivalId());
+
+        String rivalId = VO.getRivalId();
+
+        logger.info(rivalId);
+        if(rivalId == null || rivalId.length() == 0){
+            return Result.error(CodeMsg.MATCH_WAIT);
+        }
         return Result.success(matchService.matchRival(mail));
     }
 
